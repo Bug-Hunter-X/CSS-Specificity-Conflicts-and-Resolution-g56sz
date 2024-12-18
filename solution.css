@@ -1,0 +1,19 @@
+To fix this issue, it's important to understand the rules of CSS specificity.  There are a number of ways to resolve the issue:
+
+1. **Increase Specificity:** Make the selector more specific by adding extra selectors. For example, using an id selector has higher specificity than a class selector.  In the above example, changing `div p` to `div > p` will override `.important p` because the child combinator adds specificity.
+
+2. **Use !important:**  Use `!important` to override styles.  This is generally discouraged as it can make CSS harder to maintain, but in some situations it's the best solution. Example:
+```css
+div p { color: blue !important; }
+```
+
+3. **Use a CSS Preprocessor:** Use tools like Sass or Less, which allow you to use variables and mixins, to reduce the chance of specificity conflicts.  These preprocessors can also enhance code maintainability.
+
+4. **Rethink your selectors:** Often the best solution is to reconsider your selectors. Make sure the selectors are as simple as possible and avoid overly nested structures.
+
+The `solution.css` shows an example of solving the conflict by making the `div p` selector more specific using the `>` combinator. 
+
+```css
+div > p { color: blue; }
+.important p { color: red; }
+```
