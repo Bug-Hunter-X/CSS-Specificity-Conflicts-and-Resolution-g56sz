@@ -1,0 +1,11 @@
+The following CSS code has a common error that can be difficult to track down:  Specificity Conflicts.  This occurs when multiple CSS selectors target the same element, and the browser doesn't know which style to apply.  Consider this example:
+
+```css
+div p { color: blue; }
+.important p { color: red; }
+<div>
+  <p class="important">This is some text.</p>
+</div>
+```
+
+The `div p` selector has a lower specificity than the `.important p` selector. However, the browser might not always behave as expected in these situations.
